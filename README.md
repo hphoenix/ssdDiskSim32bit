@@ -6,4 +6,4 @@ It may be necessary to install 32 bit support:
 
 sudo apt-get install libc6-dev-i386
 
-Original repository: https://github.com/benh/disksim.git
+Source repository: https://github.com/benh/disksim.git
