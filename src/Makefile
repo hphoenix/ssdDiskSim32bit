@@ -32,9 +32,9 @@ FLEX = flex
 
 include .paths
 
-LDFLAGS = -lm -L. -ldisksim $(DISKMODEL_LDFLAGS) $(MEMSMODEL_LDFLAGS) \
+LDFLAGS = -L. -ldisksim $(DISKMODEL_LDFLAGS) $(MEMSMODEL_LDFLAGS) \
                             $(SSDMODEL_LDFLAGS) \
-                            $(LIBPARAM_LDFLAGS) $(LIBDDBG_LDFLAGS) 
+                            $(LIBPARAM_LDFLAGS) $(LIBDDBG_LDFLAGS) -lm
 
 HP_FAST_OFLAGS = +O4
 NCR_FAST_OFLAGS = -O4 -Hoff=BEHAVED 
@@ -114,7 +114,7 @@ fbdisksim :
 	$(MAKE) FREEBLOCKS_OFLAGS=-DFREEBLOCKS all
 
 rms : rms.c
-	$(CC) $< -lm -o $@
+	$(CC) $< -o $@ -lm
 
 hplcomb : hplcomb.c
 	$(CC) $< -o $@
